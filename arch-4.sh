@@ -7,7 +7,7 @@ echo "::1 localhost" >> /etc/hosts
 echo "127.0.1.1 zDesktop.localdomain zDesktop"
 
 echo "Edit grub configuration file for LUKS support."
-echo "GRUB_CMDLINE_LINUX=”cryptdevice=/dev/sda3:luks_root”"
+echo "GRUB_CMDLINE_LINUX='cryptdevice=/dev/sda3:luks_root'"
 echo "vim /etc/default/grub"
 
 
