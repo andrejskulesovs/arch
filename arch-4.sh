@@ -1,14 +1,15 @@
-echo "zDesktop" > /etc/hostname
-echo "127.0.0.1 localhost" >> /etc/hosts
-echo "::1 localhost" >> /etc/hosts
-echo "127.0.1.1 zDesktop.localdomain zDesktop"
+mkinitcpio -p linux
 
-echo "Edit grub configuration file for LUKS support."
-echo "GRUB_CMDLINE_LINUX='cryptdevice=/dev/sda3:luks_root'"
-echo "vim /etc/default/grub"
+echo "Set root password"
+passwd
+
+# Install boot loader
+
+grub-install --boot-directory=/boot --efi-directory=/boot/efi /dev/sda2
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
 
 
-echo "Then edit /etc/mkinitcpio.conf"
-echo "Edit HOOK line insert 'encrypt' before 'filesystems'"
-
-echo "then run arch-5.sh"
+echo "Exit and reboot. Then run arch-post.sh"
