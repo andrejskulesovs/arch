@@ -11,7 +11,7 @@ cryptsetup open /dev/sda3 luks_root
 # Format and mount file system
 
 
-mkfs.vfat -n “EFI” /dev/sda1
+mkfs.vfat -n "EFI" /dev/sda1
 
 mkfs.ext4 -L boot /dev/sda2
 
@@ -41,7 +41,7 @@ chmod 0600 swap
 
 # Install packages
 
-pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmare networkmanager sudo vi vim bash-completion nano
+pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware networkmanager sudo vi vim bash-completion nano
 
 # Configure
 
