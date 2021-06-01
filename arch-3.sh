@@ -1,3 +1,8 @@
-ln -sf /usr/share/zoneinfo/Europe/Riga /etc/localtime 
+ln -sf /usr/share/zoneinfo/Europe/Riga /etc/localtime
 hwclock  --systohc --utc
-echo 'Now edit /etc/locale.gen and remove the comment (‘#’) on en_US.UTF-8 and ru lv. Then run arch-4.sh'
+
+# Update locale
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+echo LANGUAGE=en_US >> /etc/locale.conf
+echo LC_ALL=C >> /etc/locale.conf
+echo 'Now run arch-4.sh'
